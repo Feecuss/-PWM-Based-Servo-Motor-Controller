@@ -13,13 +13,16 @@ use IEEE.std_logic_unsigned.ALL;
 
 entity pwm_generator is
     generic (
-        N : integer := 5;
-        COUNT_END : integer := 500
+        COUNT_END : integer := 500;
+        N : integer := 8
+        
     );
     Port ( clk : in STD_LOGIC;
            rst : in STD_LOGIC;
-           en : in STD_LOGIC;         
-           pwm : out STD_LOGIC := '1');
+           en : in STD_LOGIC;
+           pos : in STD_LOGIC_VECTOR(7 downto 0);
+           pwm : out STD_LOGIC
+    );
 end pwm_generator;
 
 architecture Behavioral of pwm_generator is
@@ -37,6 +40,9 @@ begin
                     sig_count <= (others => '0');
                     pwm_out <= '1';
                 else
+                    if sig_count >= pos - 1 then
+                        pwm_out <= '0';
+                    end if;
                     sig_count <= sig_count + 1;
                 end if;
             end if;
