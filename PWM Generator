@@ -1,0 +1,50 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.std_logic_unsigned.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity pwm_generator is
+    generic (
+        N : integer := 5;
+        COUNT_END : integer := 500
+    );
+    Port ( clk : in STD_LOGIC;
+           rst : in STD_LOGIC;
+           en : in STD_LOGIC;         
+           pwm : out STD_LOGIC := '1');
+end pwm_generator;
+
+architecture Behavioral of pwm_generator is
+signal sig_count: STD_LOGIC_VECTOR (N - 1 downto 0) := (others => '0');
+signal pwm_out : STD_LOGIC := '1';
+begin
+    
+    process (clk)
+    begin
+        if rising_edge(clk) then
+            if rst='1' then
+                sig_count <= (others => '0');
+            elsif en='1' then
+                if sig_count = COUNT_END - 1 then
+                    sig_count <= (others => '0');
+                    pwm_out <= '1';
+                else
+                    sig_count <= sig_count + 1;
+                end if;
+            end if;
+        end if;
+    end process;
+    pwm <= pwm_out;
+
+						
+						
+
+end Behavioral;
