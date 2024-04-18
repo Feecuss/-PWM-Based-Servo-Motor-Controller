@@ -1,43 +1,52 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.std_logic_unsigned.all;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
+library ieee;
+  use ieee.std_logic_1164.all;
+  use ieee.numeric_std.all;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
--- library UNISIM;
--- use UNISIM.VComponents.all;
+----------------------------------------------------------
+-- Entity declaration for N-bit counter
+----------------------------------------------------------
 
-entity Counter is
-    Port ( clk : in STD_LOGIC;
-           count : out STD_LOGIC_VECTOR (3 downto 0);
-           rst : in STD_LOGIC;
-           en : in STD_LOGIC;
-           duty : out unsigned(STD_LOGIC_VECTOR (3 downto 0)));
-end Counter;
+entity cnt_up_down is
+  generic (
+    N_BITS : natural := 8 --! Default number of counter bits
+  );
+  port (
+    clk    : in    std_logic; --! Main clock
+    rst    : in    std_logic; --! Synchronous reset
+    en     : in    std_logic; --! Enable input
+    cnt_up : in    std_logic; --! left
+    cnt_down : in std_logic; -- right
+    stop   : in std_logic;
+    cnt    : out   std_logic_vector(N_BITS - 1 downto 0) := b"1000_0000" --! 150
+  );
+end entity cnt_up_down;
 
-architecture Behavioral of Counter is
 
-signal sig_count : STD_LOGIC_VECTOR (3 downto 0);
+
+architecture behavioral of cnt_up_down is
+
+  signal sig_cnt : unsigned(N_BITS - 1 downto 0) := b"1000_0000"; --! Local counter
 
 begin
-process (clk)
-begin
-   if clk='1' and clk'event then
-      if rst='1' then
-         sig_count <= (others => '0');
-         duty <= (others => '0');
-      elsif en='1' then
-         sig_count <= sig_count + 1;
-      end if;
-   end if;
-    
-end process;
+  p_cnt_up_down : process (clk) is
+  begin
+    if (rising_edge(clk)) then
+            if rst = '1' then 
+                sig_cnt <= b"1000_0000";
+            elsif en = '1' then
+                if (cnt_up = '1' and sig_cnt < b"1111_1010") then -- do prava a pokud není sig_cnt < 250
+                    sig_cnt <= sig_cnt + 1 ;
+                end if;
+                if (cnt_down = '1' and sig_cnt > b"0011_0010") then-- do leva a pokud není sig_cnt < 50
+                    sig_cnt <= sig_cnt - 1;
+                end if;
+            end if;
+    end if;
+                
 
-count <= sig_count;
-duty <= sig_count;  -- potřeba upravit
+  end process p_cnt_up_down;
 
-end Behavioral;
+  cnt <= std_logic_vector(sig_cnt);
+
+end architecture behavioral;
