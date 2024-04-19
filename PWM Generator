@@ -18,10 +18,12 @@ entity pwm_generator is
         
     );
     Port ( clk : in STD_LOGIC;
+           clk_slow : in STD_LOGIC;
            rst : in STD_LOGIC;
            en : in STD_LOGIC;
            pos : in STD_LOGIC_VECTOR(7 downto 0);
            pwm : out STD_LOGIC
+
     );
 end pwm_generator;
 
@@ -30,9 +32,9 @@ signal sig_count: STD_LOGIC_VECTOR (N - 1 downto 0) := (others => '0');
 signal pwm_out : STD_LOGIC := '1';
 begin
     
-    process (clk)
+    process (clk_slow)
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_slow) then
             if rst='1' then
                 sig_count <= (others => '0');
             elsif en='1' then
@@ -54,3 +56,4 @@ begin
 						
 
 end Behavioral;
+
