@@ -16,6 +16,7 @@ architecture tb of tb_pwm_generator is
             COUNT_END : integer := 500
         );
         port (clk     : in std_logic;
+              clk_slow : in std_logic;
               rst     : in std_logic;
               en      : in std_logic;
               pos     : in std_logic_vector (7 downto 0);
@@ -23,6 +24,7 @@ architecture tb of tb_pwm_generator is
     end component;
 
     signal clk     : std_logic;
+    signal clk_slow: std_logic;
     signal rst     : std_logic;
     signal en      : std_logic;
     signal pos     : std_logic_vector (7 downto 0);
@@ -39,6 +41,7 @@ begin
         N => 4,
         COUNT_END => 12)
     port map (clk     => clk,
+              clk_slow => clk_slow,
               rst     => rst,
               en      => en,
               pos     => pos,
@@ -48,7 +51,7 @@ begin
     TbClock <= not TbClock after TbPeriod/2 when TbSimEnded /= '1' else '0';
 
     -- EDIT: Check that clk is really your main clock signal
-    clk <= TbClock;
+    clk_slow <= TbClock;
     en <= '1';
 
     stimuli : process
