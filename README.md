@@ -27,3 +27,6 @@ Tento kód implementuje modul pro generování pomalého impulzního signálu na
 
 ### Clock_enable_fast
 Tento kód implementuje modul pro generování rychlého impulzního signálu na výstupu pulse_fast s periodou definovanou generickým parametrem PERIOD, který výchozí hodnotou má 200000 (což odpovídá frekvenci 500 Hz). Signál clk je vstupní hodinový signál, zatímco rst je vstup pro resetování modulu. Modul generuje impulzy s délkou jednoho taktu hodin na výstupu pulse_fast, přičemž se synchronizuje s hranami náběžné hrany hodinového signálu clk a respektuje stav signálu rst pro resetování čítače.
+
+### Top_level
+Tento kód implementuje vrchní úroveň systému, který zahrnuje moduly pro generování rychlého a pomalého impulzního signálu (clock_enable_fast a clock_enable_slow). Dále obsahuje dva instance modulu PWM_controller, které řídí PWM signály pro dva servomotory, přičemž vstupy těchto modulů jsou ovládány tlačítky (BTNL, BTNU, BTND, BTNR) a přepínači (SW(0), SW(1)). Signál clk100MHz je vstupní hodinový signál systému.
