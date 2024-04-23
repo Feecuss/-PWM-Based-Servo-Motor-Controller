@@ -1,8 +1,6 @@
 Topic 3: PWM-Based Servo Motor Controller
 
 
-
-
 Rozdělení rolí:
 
   Ondřej Pulpit má na starosti programování a sestavování schéma
