@@ -22,3 +22,5 @@ Naše skupina si zvolila PWM-Based Servo Motor Controller. Základní ovládaní
 ### PWM
 Tento kód implementuje řídicí jednotku PWM (Pulse Width Modulation). Když je aktivován signál en, kontroluje šířku pulsu PWM na výstupu pwm podle stavu signálů left a right, které slouží k nastavení šířky pulsu doleva a doprava. Signál en_sw řídí možnost změny šířky pulsu. Dále kód generuje vektor pos, který indikuje pozici šířky pulsu pomocí jednotlivých bitů v závislosti na hodnotě width.
 
+###Clock_enable_slow
+Tento kód implementuje modul pro generování pomalého impulzního signálu na výstupu pulse_slow s periodou definovanou generickým parametrem PERIOD, který výchozí hodnotou má 2000000 (což odpovídá frekvenci 50 Hz). Signál clk je vstupní hodinový signál, zatímco rst je vstup pro resetování modulu. Modul generuje impulzy s délkou jednoho taktu hodin na výstupu pulse_slow, přičemž se synchronizuje s hranami náběžné hrany hodinového signálu clk a respektuje stav signálu rst pro resetování čítače.
