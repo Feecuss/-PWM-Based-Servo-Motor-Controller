@@ -1,11 +1,14 @@
 Topic 3: PWM-Based Servo Motor Controller
 
+
 Rozdělení rolí:
+
   Ondřej Pulpit má na starosti programování a sestavování schéma
   
   Filip Rákos je zodpovědný za programování
   
   Lukáš Poláček pomáhá s programováním a stará se o GitHub
+  
 
 Schéma projektu:
 
