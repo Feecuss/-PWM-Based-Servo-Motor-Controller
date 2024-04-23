@@ -1,4 +1,4 @@
-## Topic 3: PWM-Based Servo Motor Controller
+### Topic 3: PWM-Based Servo Motor Controller
 
 Rozdělení rolí:
 
