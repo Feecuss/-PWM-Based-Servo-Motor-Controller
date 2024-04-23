@@ -8,6 +8,10 @@ Rozdělení rolí:
   Filip Rákos je zodpovědný za programování
   
   Lukáš Poláček pomáhá s programováním a stará se o GitHub
+
+
+
+
   
 
 Schéma projektu:
