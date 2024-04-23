@@ -1,5 +1,4 @@
-Topic 3: PWM-Based Servo Motor Controller
-
+## Topic 3: PWM-Based Servo Motor Controller
 
 Rozdělení rolí:
 
@@ -9,10 +8,6 @@ Rozdělení rolí:
   
   Lukáš Poláček pomáhá s programováním a stará se o GitHub
 
-
-
-
-  
 
 Schéma projektu:
 
