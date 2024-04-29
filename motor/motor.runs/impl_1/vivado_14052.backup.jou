@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Apr 29 10:53:28 2024
+# Process ID: 14052
+# Current directory: C:/Users/230162/motor/motor.runs/impl_1
+# Command line: vivado.exe -log toplevl.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source toplevl.tcl -notrace
+# Log file: C:/Users/230162/motor/motor.runs/impl_1/toplevl.vdi
+# Journal file: C:/Users/230162/motor/motor.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source toplevl.tcl -notrace

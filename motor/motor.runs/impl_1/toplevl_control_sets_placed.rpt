@@ -1,0 +1,98 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Mon Apr 29 11:26:39 2024
+| Host         : PC-637 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file toplevl_control_sets_placed.rpt
+| Design       : toplevl
+| Device       : xc7a50ti
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    20 |
+|    Minimum number of control sets                        |    20 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   132 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    20 |
+| >= 0 to < 4        |    16 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     4 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              12 |           12 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               2 |            2 |
+| Yes          | No                    | No                     |              34 |           10 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              44 |           14 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------+---------------+----------------------------+------------------+----------------+--------------+
+|         Clock Signal        | Enable Signal |      Set/Reset Signal      | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------------+---------------+----------------------------+------------------+----------------+--------------+
+|  PWM1/led_reg[3]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM1/led_reg[2]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM1/led_reg[4]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM1/led_reg[5]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM1/led_reg[7]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM2/led_reg[2]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM1/led_reg[6]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM2/led_reg[4]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM2/led_reg[3]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM2/led_reg[6]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM2/led_reg[5]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM2/led_reg[7]/G0         |               |                            |                1 |              1 |         1.00 |
+|  PWM1/led_reg[7]_i_1_n_0    |               | PWM1/led_reg[1]_i_1_n_0    |                1 |              1 |         1.00 |
+|  PWM2/led_reg[7]_i_1__0_n_0 |               | PWM2/led_reg[1]_i_1__0_n_0 |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG              | LED_en1_OBUF  | PWM1/pwm0                  |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG              | LED_en2_OBUF  | PWM2/pwm0                  |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG              | LED_en1_OBUF  |                            |                5 |             17 |         3.40 |
+|  CLK_IBUF_BUFG              | LED_en2_OBUF  |                            |                5 |             17 |         3.40 |
+|  CLK_IBUF_BUFG              | LED_en1_OBUF  | PWM1/counter0              |                6 |             21 |         3.50 |
+|  CLK_IBUF_BUFG              | LED_en2_OBUF  | PWM2/counter0              |                6 |             21 |         3.50 |
++-----------------------------+---------------+----------------------------+------------------+----------------+--------------+
+
+
