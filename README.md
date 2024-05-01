@@ -26,8 +26,8 @@ The toplevl module serves as the top-level entity integrating the clock enable m
 ![image](https://github.com/Feecuss/PWM-Based-Servo-Motor-Controller/assets/165302466/2c7c87aa-d130-43c4-8428-c5c4d612e36e)
 
 ## Dílčí kódy
-### PWM
-Tento kód implementuje řídicí jednotku PWM (Pulse Width Modulation). Když je aktivován signál en, kontroluje šířku pulsu PWM na výstupu pwm podle stavu signálů left a right, které slouží k nastavení šířky pulsu doleva a doprava. Signál en_sw řídí možnost změny šířky pulsu. Dále kód generuje vektor pos, který indikuje pozici šířky pulsu pomocí jednotlivých bitů v závislosti na hodnotě width.
+### clock_en_50
+This VHDL code defines an entity named "clk_en_50" which generates a periodic pulse signal with a frequency of 50Hz (20ms period). The code uses a clock input of 100MHz and a reset signal. Inside the architecture, there's a process that increments a counter on each rising edge of the clock until it reaches a count corresponding to the specified period. When the count matches the period minus one, it generates a pulse signal. The pulse signal remains low otherwise. The counter resets on a reset signal or when it reaches the specified period.
 
 ### Clock_enable_slow
 Tento kód implementuje modul pro generování pomalého impulzního signálu na výstupu pulse_slow s periodou definovanou generickým parametrem PERIOD, který výchozí hodnotou má 2000000 (což odpovídá frekvenci 50 Hz). Signál clk je vstupní hodinový signál, zatímco rst je vstup pro resetování modulu. Modul generuje impulzy s délkou jednoho taktu hodin na výstupu pulse_slow, přičemž se synchronizuje s hranami náběžné hrany hodinového signálu clk a respektuje stav signálu rst pro resetování čítače.
