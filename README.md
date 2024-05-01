@@ -1,12 +1,12 @@
 # Topic 3: PWM-Based Servo Motor Controller
 
-## Rozdělení rolí:
+## Roles:
 
-  Ondřej Pulpit má na starosti programování a sestavování schéma
+  Ondřej Pulpit is in charge of programming and drawing up the scheme
   
-  Filip Rákos je zodpovědný za programování
+  Filip Rákos is responsible for programming
   
-  Lukáš Poláček pomáhá s programováním a stará se o GitHub
+  Lukáš Poláček helps with programming and takes care of GitHub
 
 ## Teoretický popis a vysvětlení
 Naše skupina si zvolila PWM-Based Servo Motor Controller. Základní ovládaní bude probíhat pomocí tlačítek a to ovládání motorů a resetu. Switch bude sloužit k zapnutí nebo vypnutí motoru. Clock_enable_slow bude sloužit pro řízení PWM a Clock_enable_fast pro rychlost čítače a tím i rychlost otáčení motoru právě díky střídě.
