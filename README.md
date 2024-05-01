@@ -41,4 +41,4 @@ This VHDL code defines the top-level module "toplevl" which integrates two servo
 
 ### Motor testbench
 
-#### Here is the engine testbench where the position value is changed. You can see the entire testbench here and then zoom in to see how it changes.
+### Here is the engine testbench where the position value is changed. You can see the entire testbench here and then zoom in to see how it changes.
