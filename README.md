@@ -38,3 +38,9 @@ This VHDL code defines the top-level module "toplevl" which integrates two servo
 ## Images from an oscilloscope
 
 ### Maximum position 2ms
+
+![1000015883](https://github.com/Feecuss/PWM-Based-Servo-Motor-Controller/assets/165302466/e2fdac8b-48db-41b8-b6c6-d8a5ce81df87)
+
+### Minimum position 1ms
+
+![1000015881](https://github.com/Feecuss/PWM-Based-Servo-Motor-Controller/assets/165302466/beee2349-2aa1-4486-a833-3af669699498)
