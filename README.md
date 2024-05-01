@@ -9,7 +9,14 @@
   Lukáš Poláček helps with programming and takes care of GitHub
 
 ## Theoretical description and explanation
-Naše skupina si zvolila PWM-Based Servo Motor Controller. Základní ovládaní bude probíhat pomocí tlačítek a to ovládání motorů a resetu. Switch bude sloužit k zapnutí nebo vypnutí motoru. Clock_enable_slow bude sloužit pro řízení PWM a Clock_enable_fast pro rychlost čítače a tím i rychlost otáčení motoru právě díky střídě.
+
+This project appears to be a servo motor controller implemented on an FPGA using VHDL. It consists of three main components: a clock enable module (clk_en_50), a motor module (motor), and a top-level module (toplevl).
+
+The clk_en_50 module generates pulses with a frequency of 50Hz, serving as a timing reference for the servo motor control.
+
+The motor module controls the servo motor's behavior based on input signals such as clock, reset, enable, position settings, and switches. It calculates the duty cycle of the PWM signal based on the desired position of the servo motor.
+
+The toplevl module serves as the top-level entity integrating the clock enable module and two instances of the motor module for controlling two servo motors. It interfaces with the FPGA's switches and LEDs for input and output visualization.
 
 ## Project diagram:
 
