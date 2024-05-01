@@ -2,11 +2,11 @@
 
 ## Roles:
 
-  Ondřej Pulpit is in charge of programming and drawing up the scheme
+  Ondřej Pulpit is in charge of programming
   
   Filip Rákos is responsible for programming
   
-  Lukáš Poláček helps with programming and takes care of GitHub
+  Lukáš Poláček takes care of GitHub and editing video
 
 ## Theoretical description and explanation
 
