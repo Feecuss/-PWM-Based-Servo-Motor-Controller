@@ -25,7 +25,7 @@ The toplevl module serves as the top-level entity integrating the clock enable m
 ## Board NEXYS A7-50t
 ![image](https://github.com/Feecuss/PWM-Based-Servo-Motor-Controller/assets/165302466/2c7c87aa-d130-43c4-8428-c5c4d612e36e)
 
-## Dílčí kódy
+## Partical codes
 ### clock_en_50
 This VHDL code defines an entity named "clk_en_50" which generates a periodic pulse signal with a frequency of 50Hz (20ms period). The code uses a clock input of 100MHz and a reset signal. Inside the architecture, there's a process that increments a counter on each rising edge of the clock until it reaches a count corresponding to the specified period. When the count matches the period minus one, it generates a pulse signal. The pulse signal remains low otherwise. The counter resets on a reset signal or when it reaches the specified period.
 
