@@ -50,26 +50,13 @@ entity toplevl is
 end toplevl;
 
 architecture Behavioral of toplevl is
-
---componenets of clock_enable
-component clk_en_50
-generic (
-    PERIOD : integer
-);
-port (
-           clk      : in STD_LOGIC;
-           rst      : in STD_LOGIC;
-           pulse    : out STD_LOGIC
-);
-end component;
-
+ 
 --comoponents of servo
 component motor
 port (
         clk : in std_logic;
         rst : in std_logic;
         en : in std_logic;
-        en_cnt : in std_logic;
         position : in std_logic_vector (2 downto 0);
         pos : out std_logic_vector (2 downto 0);
         led : out std_logic_vector (7 downto 0);
@@ -78,27 +65,14 @@ port (
 );
 end component;
 
-signal sig_pulse : std_logic;
-
 begin
 
---generic and port map of clock_en_50 which generates pulses with 50Hz
-clock_en : clk_en_50
-generic map (
-   PERIOD => 2000000
-)
-port map (
-   clk => CLK,
-   rst => SW_rst,
-   pulse => sig_pulse
-);
 -- port map of 1st servo
 PWM1 : motor
 port map (
    clk => CLK,
    rst => SW_rst,
    en => SW_en1,
-   en_cnt => sig_pulse,
    position => SW1,
    led => LED1(7 downto 0),
    led_en => LED_en1,
@@ -111,7 +85,6 @@ port map (
    clk => CLK,
    rst => SW_rst,
    en => SW_en2,
-   en_cnt => sig_pulse,
    position => SW2,
    led => LED2(7 downto 0),
    led_en => LED_en2,
