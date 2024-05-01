@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use ieee.math_real.round;
+
 
 entity motor is
   port (
@@ -18,28 +18,27 @@ entity motor is
 end motor;
 
 architecture rtl of motor is
-  constant min_count : integer := 100000; -- minimal period [
-  constant max_count : integer := 200000; --maximal period
-  constant cycles_per_step : integer := 14286; --
-
-  constant counter_max : integer := 1999999; --delka periody pwm
-  signal counter : integer range 0 to counter_max;
-
-  signal duty_cycle : integer range 0 to max_count;
-  signal   current_position : integer range 0 to 7 ;
+  constant min_count : integer := 100000; -- minimal period [1 ms] 
+  constant max_count : integer := 200000; --maximal period [2 ms]
+  constant cycles_per_step : integer := 14286; --signal period control 
+  constant counter_max : integer := 1999999; --max value of counter, lenght of period pwm
+  
+  signal counter : integer range 0 to counter_max; --signal for counter
+  signal duty_cycle : integer range 0 to max_count; --signal for duty cycle of pwm signal
+  signal current_position : integer range 0 to 7 ; --signal for current position of pwm motor
   
 begin
 
   COUNTER_PROC : process(clk)
   begin
-    if rising_edge(clk) and en = '1' then
-      if rst = '1' then
-        counter <= 0;   
+    if rising_edge(clk) and en = '1' then --condition for the rising edge and enable
+      if rst = '1' then --condition for active rst
+        counter <= 0; --the counter will be reset      
       else
-        if counter < counter_max  then
-          counter <= counter + 1;
+        if counter < counter_max  then --condition for not exceeding the maximum value
+          counter <= counter + 1; --adding the value of the counter
         else
-          counter <= 0;
+          counter <= 0; --the counter will be reset
         end if;
 
       end if;
@@ -48,14 +47,14 @@ begin
 
   PWM_PROC : process(clk)
   begin
-    if rising_edge(clk) and en = '1' then
-      if rst = '1' then
-        pwm <= '0';
+    if rising_edge(clk) and en = '1' then --condition for the rising edge and enable
+      if rst = '1' then --condition for active rst
+        pwm <= '0'; --pwm is set to 0
       else
-       pwm <= '0';
+       pwm <= '0'; --pwm is seto to 0
 
-        if counter < duty_cycle then
-          pwm <= '1';
+        if counter < duty_cycle then --if the counter value is less than the dutycycle value
+          pwm <= '1'; --pwm is set to 1
         end if;
 
       end if;
@@ -64,16 +63,12 @@ begin
   
   DUTY_CYCLE_PROC : process(clk)
   begin
-    current_position <= to_integer(unsigned(position));
-    if rising_edge(clk) and en = '1' then
-    
-        duty_cycle <= current_position * cycles_per_step + min_count;
-        
+    current_position <= to_integer(unsigned(position)); --converting a binary position value to an integer and assigns it to signal 
+    if rising_edge(clk) and en = '1' then --condition for the rising edge and enable
+        duty_cycle <= current_position * cycles_per_step + min_count; --calculating a duty cycle based on position, cycles per step, and a minimum count
     end if;
     
-    -- setting leds depending on current_position and if servo is on or 
-    
-        
+    -- setting leds depending on current_position and if servo is on or off        
         if current_position = 0 then
         led <= "00000001";
         end if;
@@ -105,7 +100,7 @@ begin
         led_en <= '0';
     end if;
         
-    pos <= std_logic_vector (to_unsigned(current_position, pos'length));
+    pos <= std_logic_vector (to_unsigned(current_position, pos'length)); --converting an integer to a standard logic vector and assigns it to pos
     
   end process;
 
