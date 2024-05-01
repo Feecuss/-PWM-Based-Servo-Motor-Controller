@@ -34,3 +34,7 @@ This VHDL code defines an entity named "motor" for controlling a servo motor. It
 
 ### toplevel
 This VHDL code defines the top-level module "toplevl" which integrates two servo motors controlled by switches on an FPGA board. It takes inputs such as clock, servo positions from switches, enable signals, and a reset signal. Outputs include PWM signals for the servo motors, LED indicators for position and servo status, and PWM outputs for each servo. Inside the architecture, instances of the "clk_en_50" component generate a 50Hz pulse used for synchronizing servo control, while instances of the "motor" component control each servo's behavior based on the provided inputs.
+
+## Images from an oscilloscope
+
+### Maximum position 2ms
