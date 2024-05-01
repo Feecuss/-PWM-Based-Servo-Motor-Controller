@@ -44,3 +44,7 @@ This VHDL code defines the top-level module "toplevl" which integrates two servo
 ### Here is the engine testbench where the position value is changed. You can see the entire testbench here and then zoom in to see how it changes.
 
 ![111](https://github.com/Feecuss/PWM-Based-Servo-Motor-Controller/assets/165302466/de58e2d4-f73a-4d2c-b07d-beaebd9c3a46)
+
+![333](https://github.com/Feecuss/PWM-Based-Servo-Motor-Controller/assets/165302466/21a4560a-c6e1-4f2b-8861-5ec7bce73d6b)
+
+![222](https://github.com/Feecuss/PWM-Based-Servo-Motor-Controller/assets/165302466/b400aecd-2ef8-4877-b6fb-1bddb678f8e8)
