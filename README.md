@@ -29,11 +29,8 @@ The toplevl module serves as the top-level entity integrating the clock enable m
 ### clock_en_50
 This VHDL code defines an entity named "clk_en_50" which generates a periodic pulse signal with a frequency of 50Hz (20ms period). The code uses a clock input of 100MHz and a reset signal. Inside the architecture, there's a process that increments a counter on each rising edge of the clock until it reaches a count corresponding to the specified period. When the count matches the period minus one, it generates a pulse signal. The pulse signal remains low otherwise. The counter resets on a reset signal or when it reaches the specified period.
 
-### Clock_enable_slow
-Tento kód implementuje modul pro generování pomalého impulzního signálu na výstupu pulse_slow s periodou definovanou generickým parametrem PERIOD, který výchozí hodnotou má 2000000 (což odpovídá frekvenci 50 Hz). Signál clk je vstupní hodinový signál, zatímco rst je vstup pro resetování modulu. Modul generuje impulzy s délkou jednoho taktu hodin na výstupu pulse_slow, přičemž se synchronizuje s hranami náběžné hrany hodinového signálu clk a respektuje stav signálu rst pro resetování čítače.
+### motor
+This VHDL code defines an entity named "motor" for controlling a servo motor. It takes inputs including clock, reset, enable signals, position setting, and generates outputs including a PWM signal, LED indicators for position and servo status. Inside the architecture, there are processes for counting, generating PWM signals based on the duty cycle, and updating the duty cycle based on the selected position. LEDs indicate the current position and whether the servo is active. The duty cycle of the PWM signal is adjusted based on the selected position, controlling the motor's angle.
 
 ### Clock_enable_fast
 Tento kód implementuje modul pro generování rychlého impulzního signálu na výstupu pulse_fast s periodou definovanou generickým parametrem PERIOD, který výchozí hodnotou má 200000 (což odpovídá frekvenci 500 Hz). Signál clk je vstupní hodinový signál, zatímco rst je vstup pro resetování modulu. Modul generuje impulzy s délkou jednoho taktu hodin na výstupu pulse_fast, přičemž se synchronizuje s hranami náběžné hrany hodinového signálu clk a respektuje stav signálu rst pro resetování čítače.
-
-### Top_level
-Tento kód implementuje vrchní úroveň systému, který zahrnuje moduly pro generování rychlého a pomalého impulzního signálu (clock_enable_fast a clock_enable_slow). Dále obsahuje dva instance modulu PWM_controller, které řídí PWM signály pro dva servomotory, přičemž vstupy těchto modulů jsou ovládány tlačítky (BTNL, BTNU, BTND, BTNR) a přepínači (SW(0), SW(1)). Signál clk100MHz je vstupní hodinový signál systému.
