@@ -18,7 +18,6 @@ The toplevl module serves as the top-level entity integrating the clock enable m
 
 ## Project diagram:
 
-![tru_schematic](https://github.com/Feecuss/PWM-Based-Servo-Motor-Controller/assets/165302466/4826838b-5d6a-4862-83d5-0cd11feb86a8)
 ![little_tru](https://github.com/Feecuss/PWM-Based-Servo-Motor-Controller/assets/165302466/f985309f-7486-422d-991b-b1a4ef5c602e)
 
 ## Board NEXYS A7-50t
