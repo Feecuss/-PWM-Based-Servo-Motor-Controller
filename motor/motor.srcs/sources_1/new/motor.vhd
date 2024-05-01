@@ -6,7 +6,7 @@ use ieee.numeric_std.all;
 entity motor is
   port (
     clk : in std_logic; --internal clock of 100MHz
-    rst : in std_logic; -- reset
+    rst : in std_logic; -- stop
     en : in std_logic;  -- enable of setting the duty cycle
     en_cnt : in std_logic; -- puts counter ON/OFF with 50Hz
     position : in std_logic_vector (2 downto 0); -- switches on FPGA to set position
@@ -20,7 +20,7 @@ end motor;
 architecture rtl of motor is
   constant min_count : integer := 100000; -- minimal period [1 ms] 
   constant max_count : integer := 200000; --maximal period [2 ms]
-  constant cycles_per_step : integer := 14286; --signal period control 
+  constant cycles_per_step : integer := 14286; --signal period control [1.4286 ms]
   constant counter_max : integer := 1999999; --max value of counter, lenght of period pwm
   
   signal counter : integer range 0 to counter_max; --signal for counter
@@ -93,7 +93,7 @@ begin
         if current_position = 7 then
         led <= "11111111";
         end if;
-        
+    -- setting leds depending if servo is on or off (blue and red)     
     if en = '1' then
         led_en <= '1';     
     else    
