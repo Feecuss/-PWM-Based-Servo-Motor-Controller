@@ -8,7 +8,6 @@ entity motor is
     clk : in std_logic; --internal clock of 100MHz
     rst : in std_logic; -- stop
     en : in std_logic;  -- enable of setting the duty cycle
-    en_cnt : in std_logic; -- puts counter ON/OFF with 50Hz
     position : in std_logic_vector (2 downto 0); -- switches on FPGA to set position
     pos : out std_logic_vector (2 downto 0); -- output of position, only for simulations
     led : out std_logic_vector (7 downto 0); -- indicates the position on FPGA by leds
