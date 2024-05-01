@@ -39,6 +39,8 @@ This VHDL code defines the top-level module "toplevl" which integrates two servo
 
 ![Snímek obrazovky 2024-05-01 153648](https://github.com/Feecuss/PWM-Based-Servo-Motor-Controller/assets/165302466/cad9c804-4af0-4e3d-a8d7-4886b01a02ee)
 
-### Motor testbench
+## Motor testbench
 
 ### Here is the engine testbench where the position value is changed. You can see the entire testbench here and then zoom in to see how it changes.
+
+![111](https://github.com/Feecuss/PWM-Based-Servo-Motor-Controller/assets/165302466/de58e2d4-f73a-4d2c-b07d-beaebd9c3a46)
