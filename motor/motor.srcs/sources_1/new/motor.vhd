@@ -20,7 +20,7 @@ architecture rtl of motor is
   constant min_count : integer := 100000; -- minimal period [1 ms] 
   constant max_count : integer := 200000; --maximal period [2 ms]
   constant cycles_per_step : integer := 14286; --signal period control [1.4286 ms]
-  constant counter_max : integer := 1999999; --max value of counter, lenght of period pwm
+  constant counter_max : integer := 1999999; --max value of counter, makes period of 20ms
   
   signal counter : integer range 0 to counter_max; --signal for counter
   signal duty_cycle : integer range 0 to max_count; --signal for duty cycle of pwm signal
