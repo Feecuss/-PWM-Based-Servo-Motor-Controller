@@ -38,7 +38,7 @@ entity toplevl is
         SW2 : in std_logic_vector (2 downto 0); --Switches for position of 2nd servo
         SW_en1 : in std_logic; -- Enable switch for 1st servo
         SW_en2 : in std_logic; -- Enable switch for 1st servo
-        SW_rst : in std_logic; -- Reset switch
+        SW_rst : in std_logic; -- Stop switch
         LED1 : out std_logic_vector (7 downto 0); -- LEDs on FPGA for better reading of position 1st  servo
         LED2 : out std_logic_vector (7 downto 0); ---- LEDs on FPGA for better reading of position 1st  servo
         LED_en1 : out std_logic; -- blue led indicates if 1st servo is on
